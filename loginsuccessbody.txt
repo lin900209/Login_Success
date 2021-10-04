@@ -1,0 +1,69 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_app/scareens/district/district.screen.dart';
+import 'package:flutter_app/scareens/food/food_page_screen.dart';
+import 'package:flutter_app/scareens/forgot_password/forgot_password_screen.dart';
+import 'package:flutter_app/scareens/sign_up/sign_up_screen.dart';
+import 'package:flutter_app/size_cinfig.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter_app/scareens/sign_up/components/sign_up_form.dart';
+import 'package:flutter_app/scareens/sign_up/components/body.dart';
+
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
+import 'login_success_form.dart';
+
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_app/scareens/sign_up/components/sign_up_form.dart';
+
+
+class Body extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var user;
+    return Scaffold(
+
+        drawer: Drawer(
+          child: ListView(
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                accountName: Text("${user?.displayName}") ,
+                accountEmail: Text("${user?.email}"),
+                currentAccountPicture: Image.asset('assets/images/flutter.jpg'),
+                decoration: BoxDecoration(color: Colors.blue),
+              ),
+              ListTile(
+                leading: Icon(Icons.favorite),
+                title: Text('美食'),
+                onTap: (){
+                  Navigator.pushNamed(context, District.routeName);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.headset),
+                title: Text('美景'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.star),
+                title: Text('喜好清單'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        ),
+        body:  Center(
+          child:
+          const Text(
+            '     歡迎來到旅遊日記~\n     向右滑動打開選單 ',
+            style: TextStyle(fontSize: 30.0),
+
+          ),
+        )
+    ) ;
+  }
+}
